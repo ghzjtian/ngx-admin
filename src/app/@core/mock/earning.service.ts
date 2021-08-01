@@ -83,8 +83,8 @@ export class EarningService extends EarningData {
     const data = this.liveUpdateChartData[currency.toLowerCase()];
     const newValue = this.generateRandomLiveChartData();
 
-    data.liveChart.shift();
-    data.liveChart.push(newValue);
+    data.liveChart.shift(); // 移除第一个
+    data.liveChart.push(newValue);  // 推到后面一个.
 
     return observableOf(data.liveChart);
   }
