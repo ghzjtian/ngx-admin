@@ -31,6 +31,7 @@ export class SeoService implements OnDestroy {
     this.destroy$.complete();
   }
 
+  // <link rel="canonical" href="http://localhost:4200/pages/layout/stepper">
   createCanonicalTag() {
     this.linkCanonical = this.dom.createElement('link');
     this.linkCanonical.setAttribute('rel', 'canonical');
@@ -45,7 +46,7 @@ export class SeoService implements OnDestroy {
 
     this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
-      takeUntil(this.destroy$),
+      takeUntil(this.destroy$), // 直到 Service Destroy 后才停止监听.
     )
       .subscribe(() => {
         this.linkCanonical.setAttribute('href', this.getCanonicalUrl());
@@ -53,6 +54,8 @@ export class SeoService implements OnDestroy {
   }
 
   private getCanonicalUrl(): string {
+    // this.dom.location.origin: 'http://localhost:4200'
+    // this.dom.location.pathname: '/pages/dashboard'
     return this.dom.location.origin + this.dom.location.pathname;
   }
 }

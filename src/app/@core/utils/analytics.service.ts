@@ -19,6 +19,7 @@ export class AnalyticsService {
         filter((event) => event instanceof NavigationEnd),
       )
         .subscribe(() => {
+          const locationValue = this.location;  // pages/dashboard
           ga('send', {hitType: 'pageview', page: this.location.path()});
         });
     }

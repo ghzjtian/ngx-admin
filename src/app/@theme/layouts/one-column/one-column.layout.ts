@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+// header: fixed , 滚动时粘在上面, 不会消失.
+
 @Component({
   selector: 'ngx-one-column-layout',
   styleUrls: ['./one-column.layout.scss'],

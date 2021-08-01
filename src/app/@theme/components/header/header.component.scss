@@ -33,6 +33,7 @@
     width: auto;
 
     .sidebar-toggle {
+      // 如果方向为 从左到右，就 padding-right: 1.25rem
       @include nb-ltr(padding-right, 1.25rem);
       @include nb-rtl(padding-left, 1.25rem);
       text-decoration: none;
@@ -52,6 +53,7 @@
     }
   }
 
+  // 如果界面少于 sm ($grid-breakpoints,   sm: 576px,)
   @include media-breakpoint-down(sm) {
     .control-item {
       display: none;
@@ -62,6 +64,8 @@
     }
   }
 
+
+  // 如果界面少于 is ($container-max-widths,   sm: 400px,)
   @include media-breakpoint-down(is) {
     nb-select {
       display: none;

@@ -5,6 +5,9 @@ import { NbIconLibraries } from '@nebular/theme';
   selector: 'ngx-icons',
   styleUrls: ['./icons.component.scss'],
   templateUrl: './icons.component.html',
+  // [How to Use Change Detection in Angular](https://dzone.com/articles/how-to-use-change-detection-in-angular)
+  // ChangeDetectionStrategy.OnPush -> 只有在 View 的 @Input 改变时才刷新页面
+  // ChangeDetectionStrategy.Default -> 每秒都有页面的刷新.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconsComponent {
@@ -12,8 +15,9 @@ export class IconsComponent {
   evaIcons = [];
 
   constructor(iconsLibrary: NbIconLibraries) {
-    this.evaIcons = Array.from(iconsLibrary.getPack('eva').icons.keys())
-      .filter(icon => icon.indexOf('outline') === -1);
+    // NbIconLibraries 默认已经加载了 eva icon 包, 并且设置为默认.
+    this.evaIcons = Array.from(iconsLibrary.getPack('eva').icons.keys());
+      // .filter(icon => icon.indexOf('outline') === -1);  // 得到不包含 outline 的图像
 
     iconsLibrary.registerFontPack('fa', { packClass: 'fa', iconClassPrefix: 'fa' });
     iconsLibrary.registerFontPack('far', { packClass: 'far', iconClassPrefix: 'fa' });
@@ -51,3 +55,16 @@ export class IconsComponent {
   };
 
 }
+
+/**
+ * 
+ Awesome 例子: bell-slash
+HTML 显示:
+<nb-icon _ngcontent-dth-c390="" pack="far" _nghost-dth-c92="" ng-reflect-pack="far" ng-reflect-icon="bell-slash" class="far fa-bell-slash ng-star-inserted"></nb-icon>
+
+Awesome 官网用法: <i class="far fa-bell-slash"></i>
+
+Angular 用法:<nb-icon  icon="bell-slash" pack="far"></nb-icon>
+
+ * 
+ */
