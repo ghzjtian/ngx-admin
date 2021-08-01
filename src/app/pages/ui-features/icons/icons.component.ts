@@ -54,13 +54,12 @@ export class IconsComponent {
     fontAwesomeRegular: [ 'chart-bar', 'bell', 'bell-slash', 'bookmark', 'building' ],
   };
 
-}
-
-/**
+  /**
  * 
  Awesome 例子: bell-slash
 HTML 显示:
-<nb-icon _ngcontent-dth-c390="" pack="far" _nghost-dth-c92="" ng-reflect-pack="far" ng-reflect-icon="bell-slash" class="far fa-bell-slash ng-star-inserted"></nb-icon>
+<nb-icon _ngcontent-dth-c390="" pack="far" _nghost-dth-c92="" ng-reflect-pack="far" ng-reflect-icon="bell-slash" 
+  class="far fa-bell-slash ng-star-inserted"></nb-icon>
 
 Awesome 官网用法: <i class="far fa-bell-slash"></i>
 
@@ -68,3 +67,5 @@ Angular 用法:<nb-icon  icon="bell-slash" pack="far"></nb-icon>
 
  * 
  */
+
+}
